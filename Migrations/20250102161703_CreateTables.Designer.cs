@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace backend.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    [Migration("20250101112458_CreateTables")]
+    [Migration("20250102161703_CreateTables")]
     partial class CreateTables
     {
         /// <inheritdoc />
