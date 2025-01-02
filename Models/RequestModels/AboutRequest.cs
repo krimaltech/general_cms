@@ -5,6 +5,7 @@ namespace Backend.Models.RequestModels
 {
   public class AboutRequest
   {
+    public string? tagline {get; set;}
     public string CompanyDescription { get; set; } = String.Empty;
 
     public string? Objectives { get; set; }

@@ -9,6 +9,8 @@ namespace Backend.Models.MainModels
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
+        public string? tagline {get; set;}
+
         [Required]
         public string CompanyDescription { get; set; } = String.Empty;
 

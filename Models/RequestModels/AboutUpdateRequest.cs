@@ -5,8 +5,8 @@ namespace Backend.Models.RequestModels
 {
   public class AboutUpdateRequest
   {
-    public string? CompanyDescription { get; set; } = String.Empty;
-
+    public string? tagline { get; set; }
+    public string? CompanyDescription { get; set; }
     public string? Objectives { get; set; }
 
     public string? Vision { get; set; }

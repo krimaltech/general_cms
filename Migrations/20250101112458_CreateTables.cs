@@ -17,6 +17,7 @@ namespace backend.Migrations
                 {
                     ID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    tagline = table.Column<string>(type: "text", nullable: true),
                     CompanyDescription = table.Column<string>(type: "text", nullable: false),
                     Objectives = table.Column<string>(type: "text", nullable: true),
                     Vision = table.Column<string>(type: "text", nullable: true),
