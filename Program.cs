@@ -8,9 +8,13 @@ builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
 
+var defaultConnection = Environment.GetEnvironmentVariable("DB_CONNECTION") 
+                        ?? builder.Configuration.GetConnectionString("DefaultConnection");
+
+
 builder.Services.AddDbContext<ProjectDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseNpgsql(defaultConnection);
 });
 
 builder.Services.AddApplicationServices();
@@ -21,6 +25,9 @@ builder.Logging.AddConsole();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+app.MapGet("/", () => Results.Ok(new { message = "API is running!" }));
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
