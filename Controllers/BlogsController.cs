@@ -40,7 +40,6 @@ namespace Backend.Controllers
     [HttpPost]
     public async Task<ActionResult> AddBlogs([FromBody] BlogRequest request)
     {
-
       if (request == null)
       {
         _logger.LogWarning("received null request");

@@ -1,12 +1,9 @@
-using System.Net.Mime;
 using Backend.Data;
 using Backend.Models.MainModels;
 using Backend.Models.RequestModels;
 using Backend.Services.Interfaces;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.Json;
 
 namespace Backend.Services.Implementations
 {

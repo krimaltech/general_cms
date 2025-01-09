@@ -35,7 +35,7 @@ namespace Backend.Controllers
       if (request == null)
       {
         _logger.LogWarning("Received null request");
-        return BadRequest("Invalid request");
+          return BadRequest("Invalid request");
       }
 
       if (String.IsNullOrEmpty(request.CompanyDescription))
@@ -70,9 +70,11 @@ namespace Backend.Controllers
     }
 
 
-    public async Task<ActionResult> DeleteAbout()
+    [HttpDelete]
+    [Route("{id}")]
+    public async Task<ActionResult> DeleteAbout(int id)
     {
-      return await _aboutService.DeleteAboutAsync();
+      return await _aboutService.DeleteAboutAsync(id);
     }
   }
 }

@@ -9,6 +9,6 @@ namespace Backend.Services.Interfaces
     Task<ActionResult<IEnumerable<About>>> GetAboutsAsync();
     Task<ActionResult> AddAboutAsync(AboutRequest request);
     Task<ActionResult> UpdateAboutAsync(AboutUpdateRequest request);
-    Task<ActionResult> DeleteAboutAsync();
+    Task<ActionResult> DeleteAboutAsync(int id);
   }
 }

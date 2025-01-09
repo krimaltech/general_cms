@@ -2,7 +2,6 @@ using Backend.Data;
 using Backend.Models.MainModels;
 using Backend.Models.RequestModels;
 using Backend.Services.Interfaces;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -52,7 +51,6 @@ namespace Backend.Services.Implementations
         await _context.SaveChangesAsync();
         await transaction.CommitAsync();
         return new OkObjectResult("About successfully added");
-
       }
       catch (Exception ex)
       {
@@ -96,7 +94,7 @@ namespace Backend.Services.Implementations
       }
     }
 
-    public async Task<ActionResult> DeleteAboutAsync()
+    public async Task<ActionResult> DeleteAboutAsync(int id)
     {
       About? about = await _context.About.FirstOrDefaultAsync();
 
