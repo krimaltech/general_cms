@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Backend.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,13 +9,24 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 // Get the database connection string
-var defaultConnection = Environment.GetEnvironmentVariable("DB_CONNECTION") 
+var defaultConnection = Environment.GetEnvironmentVariable("DB_CONNECTION")
                         ?? builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Register DbContext with Npgsql provider
 builder.Services.AddDbContext<ProjectDbContext>(options =>
 {
     options.UseNpgsql(defaultConnection);
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        "AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        }
+    );
 });
 
 // Add application services
@@ -45,5 +55,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseCors("AllowAll");
 app.MapControllers();
 app.Run();

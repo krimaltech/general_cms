@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using Backend.Data;
 using Backend.Models.MainModels;
 using Backend.Models.RequestModels;
 using Backend.Services.Interfaces;
@@ -12,7 +10,6 @@ namespace Backend.Controllers
   [Route("api/[controller]")]
   public class AboutController : ControllerBase
   {
-
     private readonly ILogger<AboutController> _logger;
     private readonly IAboutService _aboutService;
 
@@ -31,7 +28,6 @@ namespace Backend.Controllers
     [HttpPost]
     public async Task<ActionResult> AddAbout([FromBody] AboutRequest request)
     {
-
       if (request == null)
       {
         _logger.LogWarning("Received null request");
